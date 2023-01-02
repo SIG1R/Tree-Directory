@@ -2,7 +2,7 @@ import os
 
 class Directory:
 
-    def __init__(self, path, deep = 0, *content):
+    def __init__(self, path= os.getcwd(), deep = 0, *content):
         
         '''
         self.name -> Name of directory
@@ -18,6 +18,7 @@ class Directory:
         self.size = None
         self.deep = deep
         
+        if (not len(content) & len(os.listdir())>0): content= os.listdir()
 
         for element in content:
             assert type(element) is str
